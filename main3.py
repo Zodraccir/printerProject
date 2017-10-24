@@ -24,7 +24,7 @@ def printer_errorneous_state(printer, error_states=PRINTER_ERROR_STATES):
 def printCatching(printJob):
     for job in printJob:
         for key,values in job.items():
-            print(str(key)+"  ==> to value ==> "+str(values))
+            print(str(key)+"  ==> value ==> "+str(values))
             pass
         return job
 
@@ -45,7 +45,7 @@ def main():
         previusJob={}
         while True:
             jobs=[]
-            print_jobs = win32print.EnumJobs(prn, 0, 1, 3)
+            print_jobs = win32print.EnumJobs(prn, 0, 1, 2)
             if print_jobs:
                 jobs.extend(list(print_jobs))
             
