@@ -24,7 +24,7 @@ def printer_errorneous_state(printer, error_states=PRINTER_ERROR_STATES):
 def printCatching(printJob):
     for job in printJob:
         for key,values in job.items():
-            print(str(key)+"to value: "+str(values))
+            print(str(key)+"  ==> to value ==> "+str(values))
             pass
         return job
 
