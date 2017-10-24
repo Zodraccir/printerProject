@@ -24,7 +24,7 @@ def printer_errorneous_state(printer, error_states=PRINTER_ERROR_STATES):
 def printCatching(printJob):
     for job in printJob:
         for key,values in job.items():
-            if key=="Status" && values=="None":
+            if str(key)=="Status" & str(values)=="None":
                 print(str(key)+"  ==> value ==> "+str(values))
             pass
         return job
