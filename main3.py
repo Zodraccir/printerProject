@@ -41,6 +41,7 @@ def main():
         print("Printer OK...")
         #  Do the real workS
         previusStatus=0
+        counter=0
         previusJob={}
         while True:
             jobs=[]
@@ -51,12 +52,16 @@ def main():
             if(len(jobs)>0):
                 if(previusStatus==0):
                     print("Starting printing")
+                counter=counter+1
                 previusStatus=1
                 previusJob=printCatching(jobs)
             else:
                 if(previusStatus==1):
                     print("User " + previusJob["pUserName"] + " have printed " + str(previusJob["PagesPrinted"]) + " Pages")
                     print("Finish printing")
+                    print (counter)
+                    counter=0
+
                 previusStatus=0
             
             
