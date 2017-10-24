@@ -77,6 +77,8 @@ while 1:
      e = PMFuncs()
      for i in e.PrinterList():
 
+         print(i)
+
          try:
              p = e.GetJobList(i['Name'])
              for w in p:
