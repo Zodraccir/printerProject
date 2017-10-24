@@ -6,15 +6,9 @@ import time
 wp = win32print
 
 # lists and dicitonaries of constants
-ptypelist =
-[(wp.PRINTER_ENUM_SHARED,'shared'),(wp.PRINTER_ENUM_LOCAL,'local'),(wp.PRINTER_ENUM_CONNECTIONS,'network')]
-cmds = {'Pause':wp.JOB_CONTROL_PAUSE, 'cancel':wp.JOB_CONTROL_CANCEL,
-'resume':wp.JOB_CONTROL_RESUME,
-'prior_low':wp.MIN_PRIORITY,'prior_high':wp.MAX_PRIORITY,'prior_normal':wp.DEF_PRIORITY
-}
-statuscodes =
-{'deleting':wp.JOB_STATUS_DELETING,'error':wp.JOB_STATUS_ERROR,'offline':wp.JOB_STATUS_OFFLINE,'paper
-out':wp.JOB_STATUS_PAPEROUT,'paused':wp.JOB_STATUS_PAUSED,'printed':wp.JOB_STATUS_PRINTED,'printing':wp.JOB_STATUS_PRINTING,'spooling':wp.JOB_STATUS_SPOOLING}
+ptypelist =[(wp.PRINTER_ENUM_SHARED,'shared'),(wp.PRINTER_ENUM_LOCAL,'local'),(wp.PRINTER_ENUM_CONNECTIONS,'network')]
+cmds = {'Pause':wp.JOB_CONTROL_PAUSE, 'cancel':wp.JOB_CONTROL_CANCEL,'resume':wp.JOB_CONTROL_RESUME,'prior_low':wp.MIN_PRIORITY,'prior_high':wp.MAX_PRIORITY,'prior_normal':wp.DEF_PRIORITY}
+statuscodes = {'deleting':wp.JOB_STATUS_DELETING,'error':wp.JOB_STATUS_ERROR,'offline':wp.JOB_STATUS_OFFLINE,'paperout':wp.JOB_STATUS_PAPEROUT,'paused':wp.JOB_STATUS_PAUSED,'printed':wp.JOB_STATUS_PRINTED,'printing':wp.JOB_STATUS_PRINTING,'spooling':wp.JOB_STATUS_SPOOLING}
 
 class PMFuncs:
 
@@ -36,8 +30,7 @@ class PMFuncs:
 
              try:
 
-                 for (Flags,pDescription,pName,pComment) in
-list(win32print.EnumPrinters(pt[0],None,1)):
+                 for (Flags,pDescription,pName,pComment) in list(win32print.EnumPrinters(pt[0],None,1)):
                      tmpdic ={}
                      tmpdic['PType'] = pt[1]
                      tmpdic['Flags'] = Flags
@@ -87,7 +80,7 @@ while 1:
          try:
              p = e.GetJobList(i['Name'])
              for w in p:
-                 print e.GetJobInfo(i['Name'],w['JobID'])
+                 print (e.GetJobInfo(i['Name'],w['JobID']))
 
          except:
              pass
